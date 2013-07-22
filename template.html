@@ -1,0 +1,48 @@
+<style type="text/css">
+    table.event {
+    }
+  
+    table.event td.time {
+        width: 125px;
+        border: 0px;
+        vertical-align: middle;
+    }
+  
+    table.event td.text {
+        width: 450px;
+        border: 0px;
+        vertical-align: middle;
+    }
+  
+    table.event tr.solid { height: 25px; background: white; color: black; vertical-align: center; border-bottom: 1px solid black; font-weight: bold;}
+    table.event tr.main { height: 25px; background: white; color: black; vertical-align: center; border-bottom: dotted 1px black;}
+    table.event tr.last { height: 25px; background: white; color: black; vertical-align: center; }
+  
+</style>
+
+<hr class='hr_1' style='height: 25px' />
+<h1 align= 'center'>Grand St. Twitter</h1>
+<hr class='hr_1' style='height: 10px' />
+
+<hr class='hr_1' style='height: 5px' />
+<p align='left'><b>The last <%=parseInt(data.tweets.length) %> tweets</b></p>
+<hr class='hr_4' style='height: 5px' />
+
+<table class="event">
+    <tr class='solid'>
+        <td class='time'>Time</td>
+        <td class='text'>Tweet</td>        
+    </tr>
+<% for (var i=0; i<data.tweets.length; i++) { %>
+    <% if (i == data.tweets.length - 1) { %>
+        <tr class='last'>    
+    <% } else { %>
+        <tr class='main'> 
+    <% } %>  
+            <td class='time'><%= data.times[i] %></td>
+            <td class='text'><%= data.tweets[i] %></td>        
+        </tr>    
+      
+<% } %>   
+</table>
+
